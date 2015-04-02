@@ -73,31 +73,31 @@ module.exports.routes = {
 		action : "myProfile"
 	},
 	'get /secured/myfriends' : {
-		controller : 'home',
+		controller : 'fbGraph',
 		action : "myFriends"
 	},
 	'get /secured/postToWall' : {
-		controller : 'home',
+		controller : 'fbGraph',
 		action : "showPostToWall"
 	},
 	'post /secured/postToWall' : {
-		controller : 'home',
+		controller : 'fbGraph',
 		action : "postToWall"
 	},
 	'get /secured/showMyPosts' : {
-		controller : 'home',
+		controller : 'fbGraph',
 		action : "showMyPosts"
 	},
 	'get /secured/showPostDetail' : {
-		controller : 'home',
+		controller : 'fbGraph',
 		action : "showPostDetail"
 	},
 	'post /secured/likePost' : {
-		controller : 'home',
+		controller : 'fbGraph',
 		action : "likePost"
 	},
 	'post /secured/addComment' : {
-		controller : 'home',
+		controller : 'fbGraph',
 		action : "addNewComment"
 	},
 
