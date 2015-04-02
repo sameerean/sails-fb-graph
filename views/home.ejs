@@ -1,0 +1,21 @@
+
+<ul class="getting-started">
+	<li class="clearfix">
+		<div class="step">
+			<div class="sprite one"></div>
+			<h3>Welcome, <%= req.session.user.firstName %> <%-
+				req.session.user.lastName %>. You are successfully Logged In.</h3>
+		</div>
+	</li>
+	<li class="clearfix">
+		<div class="step">
+			<div class="sprite two"></div>
+			<h3>
+				Your Facebook Id = <strong><%- req.session.user.pid %></strong>
+			</h3>
+			<p>
+				<!-- <a href="auth/logout">Logout</a> -->
+			</p>
+		</div>
+	</li>
+</ul>

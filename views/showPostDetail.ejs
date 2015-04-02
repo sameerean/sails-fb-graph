@@ -1,0 +1,103 @@
+<div class="jumbotron">
+	<p class="lead"><%=post.message%></p>
+</div>
+<div class="form-inline">
+	<div class="form-group col-md-4">
+		<label for="exampleInputEmail1">Posted By</label>
+		<p class="form-control-static"><%=post.from.name%></p>
+	</div>
+	<div class="form-group col-md-4">
+		<label for="exampleInputEmail1">Posted At</label>
+		<p class="form-control-static"><%=new
+			Date(post.created_time).toDateString()%></p>
+	</div>
+	<div class="form-group col-md-2">
+		<label for="exampleInputEmail1">Comments <span class="badge"><%=comments.length%></span></label>
+	</div>
+	<div class="form-group col-md-1">
+		<button type="button" class="btn btn-default"
+			data-toggle="popover-html" data-placement="left"
+			data-popover-content="#likesPanel" data-trigger="focus" tabindex="0">
+			<!-- <a class="btn btn-primary" data-placement="top" data-popover-content="#a1" data-toggle="popover" data-trigger="focus" href="#" tabindex="0">Popover Example</a> -->
+
+			<span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+			<span class="badge"><%=likes.length%></span>
+		</button>
+		<div class="hidden" id="likesPanel">
+			<div class="popover-heading">Who liked this post ?</div>
+
+			<div class="popover-body">
+				<table class="table table-striped">
+					<tbody>
+						<% for(var i=0; i
+						<likes.length ; i++) {
+    	var comment=likes[i];%>
+						<tr>
+							<td><%=(i+1)%></td>
+							<td><%=likes[i].name%></td>
+						</tr>
+						<% } %> 
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+	<div class="form-group col-md-1">
+		<form method="post" action="/secured/likePost">
+			<input type="hidden" name="postId" value="<%=post.id%>">
+			<button type="submit" class="btn btn-default">
+				<span class="glyphicon glyphicon-hand-up"></span>
+			</button>
+		</form>
+	</div>
+
+</div>
+
+<hr />
+<div class="row">
+	<div class="form-group col-md-8">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Comment</th>
+					<th>Posted By</th>
+					<th>Posted at</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i
+				<comments.length ; i++) {
+    	var comment=comments[i];%>
+				<tr>
+					<td><%=(i+1)%></td>
+					<td><%=comment.message%></td>
+					<td><%=comment.from.name%></td>
+					<td><%=new Date(comment.created_time).toDateString()%></td>
+				</tr>
+				<% } %> 
+			</tbody>
+		</table>
+	</div>
+	<div class="form-group col-md-4">
+		<form method="post" action="/secured/addComment">
+			<input type="hidden" name="postId" value="<%=post.id%>">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Add New Comment</label>
+				<div class="controls">
+					<textarea rows="10" cols="40" name="comment"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="controls">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1"><%=successMessage%></label>
+			</div>
+
+		</form>
+	</div>
+</div>

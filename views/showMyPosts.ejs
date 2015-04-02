@@ -1,0 +1,21 @@
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Post</th>
+			<th>Posted at</th>
+		</tr>
+	</thead>
+	<tbody>
+    <% for(var i=0; i<posts.length; i++) {
+    	var _post = posts[i];
+    %>
+		<tr>
+			<td><%=(i+1)%></td>
+			<td><a href="/secured/showPostDetail?postId=<%=_post.pid%>"><%=_post.message%></a></td>
+			<td><%=_post.createdAt.toDateString()%></td>
+		</tr>
+    	<% } %>
+	</tbody>
+</table>
