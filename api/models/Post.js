@@ -9,17 +9,11 @@ var Post = {
 	autoPK : true,
 
 	attributes : {
-		/*
-		 * id: { type: 'string', primaryKey: true },
-		 */
 		pid : {
 			type : 'string',
 			unique : true,
 			required : true
 		},
-		/*
-		 * userName : { type : 'string', unique : true },
-		 */
 		message : {
 			type : 'string',
 			unique : false

@@ -20,6 +20,7 @@ This is a sample Sails JS application that performs Facebook Graph API operation
    -   views/postToWall.ejs > Posts to Facebook Wall as well as to the local DB (Protected - needs login)
    -   views/showMyPosts.ejs > Lists all posts made via this app (Protected - needs login)
    -   views/showPostDetail.ejs > Show the details about this post - comments, likes etc. (Protected - needs login)
+   
 
 ### Version
 1.0
